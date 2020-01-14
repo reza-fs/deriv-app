@@ -1,10 +1,14 @@
-import classNames           from 'classnames';
+import classNames   from 'classnames';
 import React, {
     useState,
     Children,
-}                           from 'react';
-import { positionPropType } from './utils';
-import ArrowButton          from './arrow-button.jsx';
+}                   from 'react';
+import { isMobile } from '@deriv/shared/utils/screen';
+import {
+    positionPropType,
+    animateChartControls,
+}                   from './utils';
+import ArrowButton  from './arrow-button.jsx';
 
 const Collapsible = ({
     as,
@@ -13,11 +17,25 @@ const Collapsible = ({
     children,
 }) => {
     const [is_open, expand] = useState(!is_collapsed);
-    const toggleExpand      = () => expand(!is_open);
-    const arrow_button      = <ArrowButton is_open={is_open} position={position} onClick={toggleExpand} />;
-    const CustomTag         = as || 'div';
+
+    const toggleExpand = () => {
+        if (isMobile()) {
+            const CHART_CONTROL_SELECTOR = '.cq-chart-controls';
+            const chart_controls_el      = document.querySelector(CHART_CONTROL_SELECTOR);
+            animateChartControls({ chart_controls_el, is_open });
+
+            expand(!is_open);
+        }
+
+    };
+    const arrow_button = <ArrowButton is_open={is_open} position={position} onClick={toggleExpand} />;
+    const CustomTag    = as || 'div';
     return (
-        <CustomTag className='dc-collapsible'>
+        <CustomTag className={classNames('dc-collapsible', {
+            'dc-collapsible--is-expanded' : is_open,
+            'dc-collapsible--is-collapsed': !is_open,
+        })}
+        >
             {position === 'top' && arrow_button}
             <div className='dc-collapsible__content'>
                 {
