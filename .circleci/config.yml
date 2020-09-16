@@ -261,9 +261,12 @@ jobs:
       - notify_slack
     environment:
       NODE_ENV: staging
+
   sync_crypto:
+    docker:
+      - image: circleci/node:12.18.0-stretch
     steps:
-      - git_push_to_crypto
+      - sync_crypto
 
   release_staging_crypto:
     docker:
