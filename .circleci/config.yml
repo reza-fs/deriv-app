@@ -337,4 +337,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^production-crypto.*/
+              only: /^crypto-production.*/
