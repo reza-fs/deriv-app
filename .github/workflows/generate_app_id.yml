@@ -77,8 +77,8 @@ jobs:
           VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
           HOME_URL: ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?qa_server=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}
       - name: Upload Artifacts
-          if: always()
-          uses: actions/upload-artifact@master
-          with:
-            name: qawolf
-            path: ${{ github.workspace }}/artifacts
+        if: always()
+        uses: actions/upload-artifact@master
+        with:
+          name: qawolf
+          path: ${{ github.workspace }}/artifacts
