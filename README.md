@@ -1,3 +1,4 @@
+ENABLING CI
 Deriv App
 ============
 This repository contains the various platforms of the Deriv application.
