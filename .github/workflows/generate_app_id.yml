@@ -69,7 +69,7 @@ jobs:
         with:
           name: generated_url
       - shell: bash
-        run: source ${{ github.workspace}}/url.txt
+        run: echo $(cat ${{ github.workspace}}/url.txt) >> $GITHUB_ENV
       - shell: bash
         run: echo $HOME_URL
 
