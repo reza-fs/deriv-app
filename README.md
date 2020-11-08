@@ -1,5 +1,6 @@
 Deriv App
 ============
+TESTING
 This repository contains the various platforms of the Deriv application.
 
 ### In this document:
