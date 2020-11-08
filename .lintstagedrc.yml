@@ -1,3 +1,4 @@
+# Adding a comment here just to trigger the build
 ./packages/*/{stories,script,src,build}/**/*.{js,jsx,scss}:
  - ./node_modules/.bin/prettier --config ./.prettierrc --write "./packages/*/{stories,script,src,build}/**/*.{js,jsx,scss}"
 
