@@ -72,11 +72,9 @@ jobs:
         with:
           name: generated_url
       - shell: bash
-        run: |
-          source ${{ github.workspace}}/url.txt
-          echo $HOME_URL
+        run: source ${{ github.workspace}}/url.txt
       - name: Install dependencies and run tests
-        run: echo "Running tests against ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}?qa_server=frontend.binaryws.com&app_id=${{ steps.generate_app_id.outputs.app_id }}" && npm ci && npm run bootstrap && npm run test:qa
+        run: npm ci && npm run test:qa
         env:
           # configure tests with environment variables
           FFMPEG_PATH: /usr/bin/ffmpeg # for recording video
