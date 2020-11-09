@@ -1,7 +1,7 @@
 Deriv App
 ============
 This repository contains the various platforms of the Deriv application.
-Test 2
+
 ### In this document:
 - [Installation](#installation)
 - Packages in this repo:
